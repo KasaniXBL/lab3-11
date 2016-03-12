@@ -12,14 +12,17 @@ class Character(object):
         self.IMAGESURF = pygame.image.load(imagefile)
         self.IMAGESURF = pygame.transform.scale(self.IMAGESURF,(scalesize,scalesize))
 
-       ## self.HP = randint(0, 300) # should range from (0 - 300) ## randint: return a random integer(start,stop)
-       ## self.DMG = randint(0,100) # should range from (0 - 100)
+        self.HP = (0, 300) # should range from (0 - 300) ## randint: return a random integer(start,stop)
+        self.DMG = (0, 100) # should range from (0 - 100)
 
         self.GameFont = pygame.font.SysFont("Sylfaen", 50)
         # this text has a black background. Can you make it transparent ?. DONE
         self.NAME = self.GameFont.render(charname, True,(255,255,255),None) 
         self.Randomize()
         self.__drawText()
+        self.__displayText()
+    
+ 
         
 
 # complete this function
@@ -29,7 +32,7 @@ class Character(object):
         #pass
         self.HP = randint(0, 300)
         self.DMG = randint(0, 300)
-        self.__displayText()
+        
 
 ## DON'T UNCOMMENT UNLESS YOU WANT IT TO RANDOMLY GENERATE NON-STOP
 ##        self.HPText = self.GameFont.render('HP : ' +str(self.HPrand), True,(255,255,255),None)
